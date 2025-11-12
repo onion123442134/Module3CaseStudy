@@ -32,10 +32,10 @@
             <a href="${pageContext.request.contextPath}/admin/products" class="btn btn-primary w-100 mb-3">🛍️ Quản lý sản phẩm</a>
         </div>
         <div class="col-md-4">
-            <a href="${pageContext.request.contextPath}/admin/orders" class="btn btn-success w-100 mb-3">📦 Theo dõi đơn hàng</a>
+            <a href="${pageContext.request.contextPath}/admin/users" class="btn btn-warning w-100 mb-3">👤 Danh sách người dùng</a>
         </div>
         <div class="col-md-4">
-            <a href="${pageContext.request.contextPath}/admin/users" class="btn btn-warning w-100 mb-3">👤 Danh sách người dùng</a>
+            <a href="${pageContext.request.contextPath}/admin/orders" class="btn btn-success w-100 mb-3">📦 Theo dõi đơn hàng</a>
         </div>
     </div>
 </div>

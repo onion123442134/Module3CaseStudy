@@ -13,24 +13,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #222;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="product">Shop</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
+        <a class="navbar-brand fw-bold text-warning" href="product" style="font-size: 1.5rem;">
+            🛍️ Shop<span class="text-light">Online</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
                 <c:if test="${not empty user}">
-                    <li class="nav-item"><a class="nav-link"><b>Xin chào, ${user.name}</b></a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart?action=view"><b>🛒 Giỏ hàng</b></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login?logout=1"
-                                            onclick="return confirm('Đăng xuất?')"><b>Đăng xuất</b></a></li>
+                    <li class="nav-item me-3 text-light">
+                        <b>👋 Xin chào, <span class="text-warning">${user.name}</span></b>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-warning fw-semibold" href="cart?action=view">🛒 Giỏ hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-warning btn-sm fw-semibold"
+                           href="login?logout=1"
+                           onclick="return confirm('Đăng xuất?')">
+                            Đăng xuất
+                        </a>
+                    </li>
                 </c:if>
+
                 <c:if test="${empty user}">
-                    <li class="nav-item"><a class="nav-link" href="login">Đăng nhập</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-warning fw-semibold text-dark" href="login">Đăng nhập</a>
+                    </li>
                 </c:if>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <div class="container mt-4">
     <c:if test="${param.success == 'added'}">
@@ -41,8 +61,6 @@
     </c:if>
 
     <h3 class="mb-3">Danh sách sản phẩm</h3>
-
-    <!-- Thanh tìm kiếm -->
     <form action="product" method="get" class="d-flex mb-4">
         <input type="hidden" name="action" value="search">
         <input type="text" name="keyword" class="form-control me-2" placeholder="Tìm sản phẩm...">
@@ -71,9 +89,7 @@
                                 </c:choose>
                             </button>
                         </form>
-
-                        <!-- Nút xem chi tiết -->
-                        <a href="product?action=view&id=${p.id}" class="btn btn-info btn-sm w-100">Xem chi tiết</a>
+                        <a href="product?action=view&id=${p.id}" class="btn btn-success btn-sm w-100">Xem chi tiết</a>
                     </div>
                 </div>
             </div>

@@ -28,13 +28,10 @@ public class AdminProductServlet extends HttpServlet {
 
         String action = req.getParameter("action");
 
-        // handle create -> show create form
         if ("create".equals(action)) {
             req.getRequestDispatcher("/create.jsp").forward(req, resp);
             return;
         }
-
-        // handle edit -> validate id and show edit form
         if ("edit".equals(action)) {
             String idStr = req.getParameter("id");
             if (idStr != null && !idStr.isEmpty()) {
@@ -45,7 +42,6 @@ public class AdminProductServlet extends HttpServlet {
                     req.getRequestDispatcher("/edit.jsp").forward(req, resp);
                     return;
                 } catch (NumberFormatException e) {
-                    // invalid id -> fall through to list
                 }
             }
         }
@@ -88,7 +84,6 @@ public class AdminProductServlet extends HttpServlet {
 
             Product p = new Product();
 
-            // safe parsing for id (update) and numeric fields
             if (idStr != null && !idStr.isEmpty()) {
                 try {
                     p.setId(Integer.parseInt(idStr));

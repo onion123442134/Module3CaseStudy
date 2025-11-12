@@ -121,7 +121,6 @@ public class ProductServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         String action = req.getParameter("action");
         if ("delete".equalsIgnoreCase(action)) {
-            // handle delete via POST
             deleteProduct(req, resp);
             return;
         }
